@@ -1,0 +1,20 @@
+export interface Patient {
+  id?: number,
+  pasNumber?: string,
+  forenames?: string,
+  surname?: string,
+  dateOfBirth?: Date,
+  sexCode?: string,
+  homeTelephoneNumber?: string,
+  nokName?: string,
+  nokRelationshipCode?: string,
+  nokAddressLine1?: string,
+  nokAddressLine2?: string,
+  nokAddressLine3?: string,
+  nokAddressLine4?: string,
+  nokPostcode?: string,
+  gpCode?: number,
+  gpSurname?: string,
+  gpInitials?: string,
+  gpPhone?: string
+}

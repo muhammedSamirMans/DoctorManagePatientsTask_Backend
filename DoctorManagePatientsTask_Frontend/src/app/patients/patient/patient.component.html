@@ -1,0 +1,54 @@
+<div class="container">
+    <h1>Patients</h1>
+    
+    <a href="#" routerLink="/patient/create/" class="btn btn-success">Create New Patient</a>
+      <div class="table-responsive">
+
+
+    <table class="table table-striped">
+        <thead>
+              <tr>
+                <th scope="col" class="text-center">#</th>
+                <th scope="col" class="text-center">pasNumber</th>
+                <th scope="col" class="text-center">fore names</th>
+                <th scope="col" class="text-center">sur name</th>
+                <th scope="col" class="text-center">date Of Birth</th>
+                <th scope="col" class="text-center">sex Code</th>
+                <th scope="col" class="text-center">home TelephoneNumber</th>
+                <!-- <th scope="col" class="text-center">nok Name</th>
+                <th scope="col" class="text-center">nok Relation ship Code</th>
+                <th scope="col" class="text-center">nok Address Line1</th>
+                <th scope="col" class="text-center">nok Address Line2</th>
+                <th scope="col" class="text-center">nok Address Line3</th>
+                <th scope="col" class="text-center">nok Address Line4</th>
+                <th scope="col" class="text-center">nok Postcode</th>
+                <th scope="col" class="text-center">gp Code</th>
+                <th scope="col" class="text-center">gp Surname</th>
+                <th scope="col" class="text-center">gp Initials</th>
+                <th scope="col" class="text-center">gp Phone</th> -->
+                <th width="250px">Action</th>
+              </tr>
+        </thead>
+        <tbody>
+              <tr *ngFor="let patient of patients">
+                <td>{{ patient.id }}</td>
+                <td>{{patient.pasNumber}}</td>
+                <td>{{patient.forenames}}</td>
+                <td>{{patient.surname}}</td>
+                <td>{{patient.dateOfBirth | date}}</td>
+                <td>{{patient.sexCode}}</td>
+                <td>{{patient.homeTelephoneNumber}}</td>
+                <td>
+                  <a href="#" [routerLink]="['/patient/', patient.id, 'view']" class="btn btn-info">View</a>
+                  <a href="#" [routerLink]="['/patient/', patient.id, 'edit']" class="btn btn-primary">Edit</a>
+                  <button type="button" (click)="delete(patient.id)" class="btn btn-danger">Delete</button>
+                </td>
+              </tr>
+        </tbody>
+    </table>
+    <pagination-controls
+    class="pagi"
+    (pageChange)="gty((page = $event))"
+  ></pagination-controls>
+</div>
+ </div>

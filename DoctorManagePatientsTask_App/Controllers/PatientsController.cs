@@ -44,6 +44,26 @@ namespace DoctorManagePatientsTask_App.Controllers
             }
             return Ok(response);
         }
+        [HttpGet]
+        [Route("GetById/patientId/{patientId}")]
+        public async Task<IActionResult> GetById([FromRoute] int patientId)
+        {
+            CommonResponseDTO response = new CommonResponseDTO();
+            try
+            {
+                response = await _patientService.GetPatientByIdsync(patientId);
+            }
+            catch (Exception ex)
+            {
+                response = new CommonResponseDTO
+                {
+                    Status = 500,
+                    Message = "Server Error.",
+                    Data = ex
+                };
+            }
+            return Ok(response);
+        }
         [HttpPost]
         [Route("Save")]
         public async Task<IActionResult> SavePatient([FromBody] PatientVM patientVM)
@@ -53,7 +73,7 @@ namespace DoctorManagePatientsTask_App.Controllers
             try
             {
                 //Check if the process is patient creation or patient modifection
-                if (patientVM.Id == 0)
+                if (patientVM.Id ==null || patientVM.Id == 0)
                     //Call The Creation Process That impelemented in patient service.
                     response = await _patientService.CreatePatientAsync(patientVM);
                 else
@@ -72,8 +92,8 @@ namespace DoctorManagePatientsTask_App.Controllers
             return Ok(response);
         }
         [HttpDelete]
-        [Route("Delete")]
-        public async Task<IActionResult> DeletePatient([FromBody] int patientId)
+        [Route("Delete/patientId/{patientId}")]
+        public async Task<IActionResult> DeletePatient([FromRoute] int patientId)
         {
             CommonResponseDTO response = new CommonResponseDTO();
             try
