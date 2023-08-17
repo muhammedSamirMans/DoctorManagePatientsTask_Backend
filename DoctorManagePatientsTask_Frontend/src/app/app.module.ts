@@ -9,7 +9,6 @@ import { NotifierModule, NotifierOptions } from 'angular-notifier';
 // import { NotesComponent } from './home/notes/notes.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { HttpClientModule } from '@angular/common/http';
-import { PatientComponent } from './patients/patient/patient.component';
 import { NgxPaginationModule } from 'ngx-pagination'; 
 
 
@@ -57,9 +56,6 @@ const customNotifierOptions: NotifierOptions = {
   declarations: [
     AppComponent,
     HomeComponent,
-    PatientComponent
-    // EditNotepadComponent,
-    // NotesComponent
   ],
   imports: [
     BrowserModule,
