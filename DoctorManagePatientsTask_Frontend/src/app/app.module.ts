@@ -4,14 +4,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-// import { EditNotepadComponent } from './home/edit-notepad/edit-notepad.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+// import { EditNotepadComponent } from './home/edit-notepad/edit-notepad.component'; 
 import { NotifierModule, NotifierOptions } from 'angular-notifier';
 // import { NotesComponent } from './home/notes/notes.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { HttpClientModule } from '@angular/common/http';
 import { PatientComponent } from './patients/patient/patient.component';
-import { NgxPaginationModule } from 'ngx-pagination';
+import { NgxPaginationModule } from 'ngx-pagination'; 
 
 
 const customNotifierOptions: NotifierOptions = {
@@ -66,11 +65,9 @@ const customNotifierOptions: NotifierOptions = {
     BrowserModule,
     Ng2SearchPipeModule,
     AppRoutingModule,
-    NotifierModule.withConfig(customNotifierOptions),
-    FormsModule,
-    ReactiveFormsModule,
+    NotifierModule.withConfig(customNotifierOptions), 
     HttpClientModule,
-    NgxPaginationModule
+    NgxPaginationModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -27,6 +27,9 @@ const routes: Routes = [
     path:'patient/:patientId/edit',
     component:EditComponent
   },
+  { path: 'doctor', loadChildren: () => import('./doctor/doctor.module').then(m => m.DoctorModule) },
+  { path: 'patient', loadChildren: () => import('./patients/patient/patient.module').then(m => m.PatientModule) },
+
   // {
   //   path:'edit-note',
   //   component:EditNotepadComponent
